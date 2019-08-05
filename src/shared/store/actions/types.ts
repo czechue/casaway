@@ -1,8 +1,19 @@
-import { FetchTodosAction, DeleteTodoAction} from "./todos";
+// import { FetchTodosAction, DeleteTodoAction} from "./todos";
+//
+// export enum ActionTypes {
+//   fetchTodos,
+//   deleteTodo
+// }
+//
+// export type Action = FetchTodosAction | DeleteTodoAction;
+
+import { GetPlayerStatsAction } from "./stats";
+import { GetPlayerItemsAction } from "./items";
 
 export enum ActionTypes {
-  fetchTodos,
-  deleteTodo
+  getPlayerStats,
+  getPlayerItems
 }
 
-export type Action = FetchTodosAction | DeleteTodoAction;
+export type PlayerStatsAction = GetPlayerStatsAction;
+export type PlayerItemsAction = GetPlayerItemsAction;

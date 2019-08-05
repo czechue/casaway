@@ -1,11 +1,15 @@
 import { combineReducers } from "redux";
-import { todosReducer } from "./todos";
-import {Todo} from "../actions";
+import { PlayerStats } from "../actions";
+import { playerStatsReducer } from "./stats";
+import {PlayerItem} from "../actions/items";
+import {playerItemsReducer} from "./items";
 
 export interface StoreState {
-  todos: Todo[]
+  stats: PlayerStats;
+  items: PlayerItem[];
 }
 
 export const reducers = combineReducers<StoreState>({
-  todos: todosReducer
+  stats: playerStatsReducer,
+  items: playerItemsReducer
 });
