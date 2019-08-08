@@ -5,12 +5,14 @@ export interface PlayerStats {
   foodPoints: number;
 }
 
-export interface GetPlayerStatsAction {
-  type: ActionTypes.getPlayerStats;
+export interface DecreaseFoodPointsAction {
+  type: ActionTypes.decreaseFoodPoints;
+  payload: number;
 }
 
-export const getPlayerStats = (): GetPlayerStatsAction => {
+export const decreaseFoodPoints = (points: number): DecreaseFoodPointsAction => {
   return {
-    type: ActionTypes.getPlayerStats
+    type: ActionTypes.decreaseFoodPoints,
+    payload: points
   };
 };

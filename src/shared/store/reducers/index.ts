@@ -1,15 +1,19 @@
 import { combineReducers } from "redux";
-import { PlayerStats } from "../actions";
+import { PlayerStats, Item } from "../actions";
 import { playerStatsReducer } from "./stats";
-import {PlayerItem} from "../actions/items";
-import {playerItemsReducer} from "./items";
+import { itemsReducer } from "./items";
+import {clickableReducer, clicksReducer} from "./clicks";
 
 export interface StoreState {
   stats: PlayerStats;
-  items: PlayerItem[];
+  itemsToShow: Item[];
+  itemsClickable: number[];
+  clicks: number;
 }
 
 export const reducers = combineReducers<StoreState>({
   stats: playerStatsReducer,
-  items: playerItemsReducer
+  itemsToShow: itemsReducer,
+  itemsClickable: clickableReducer,
+  clicks: clicksReducer
 });

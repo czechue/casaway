@@ -1,21 +1,40 @@
 import React from "react";
-import { PlayerItem } from "../../shared/store/actions/items";
+import { Item } from "../../shared/store/actions";
+import styles from "./player-items.module.scss";
+import { StoreState } from "../../shared/store/reducers";
+import { connect } from "react-redux";
+import { getItemNameById } from "../../shared/utils/getItemNameById";
 
 interface OwnProps {
-  items: PlayerItem[];
+  items: Item[];
 }
-export const PlayerItemsComponent: React.FC<OwnProps> = props => {
-  const { items } = props;
-  return (
-    <div>
-      Items:
-      {items.map((item: PlayerItem) => {
+class _App extends React.Component<OwnProps> {
+  renderItems = (): (JSX.Element | null)[] => {
+    const { items } = this.props;
+    return items.map(item => {
+      if (item.show) {
         return (
-          <div>
-            {item.name} | {item.amount}
+          <div key={item.id}>
+            {getItemNameById(item.id)}: {item.amount}
           </div>
         );
-      })}
-    </div>
-  );
+      }
+      return null;
+    });
+  };
+
+  render() {
+    return (
+      <div className={styles.paddingLeft}>
+        Items:
+        {this.renderItems()}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = ({ itemsToShow }: StoreState): { items: Item[] } => {
+  return { items: itemsToShow };
 };
+
+export const PlayerItemsComponent = connect(mapStateToProps)(_App);

@@ -1,15 +1,18 @@
 import { ActionTypes } from "./types";
 
-export interface PlayerItem {
-  id: number;
-  name: string;
-  amount: number;
+export interface Item {
+  id: number,
+  amount: number,
+  show: boolean
 }
-export interface GetPlayerItemsAction {
-  type: ActionTypes.getPlayerItems
+
+export interface IncrementItemAction {
+  type: ActionTypes.incrementItem;
+  payload: number;
 }
-export const getPlayerItems = (): GetPlayerItemsAction => {
+export const incrementItem = (id: number): IncrementItemAction => {
   return {
-    type: ActionTypes.getPlayerItems
+    type: ActionTypes.incrementItem,
+    payload: id
   };
 };
