@@ -1,18 +1,20 @@
 import React from "react";
-import { PlayerStatsComponent } from "./player-stats/player-stats.component";
-import { PlayerItemsComponent } from "./player-items/player-items.component";
+import { PlayerStatsContainer } from "./player-stats/player-stats.container";
+import { PlayerItemsContainer } from "./player-items/player-items.container";
+import { ClickableBoardContainer } from "./clickable-board/clickable-board.container";
+import { ActionsBoardContainer } from './actions-board/actions-board.container';
 import styles from "./app.module.scss";
-import { ClickableBoardComponent } from "./clickable-board/clickable-board.component";
 
 export class App extends React.Component {
   render() {
     return (
       <>
         <div className={styles.displayFlex}>
-          <PlayerStatsComponent />
-          <PlayerItemsComponent />
+          <PlayerStatsContainer />
+          <PlayerItemsContainer />
         </div>
-        <ClickableBoardComponent />
+        <ClickableBoardContainer />
+        <ActionsBoardContainer />
       </>
     );
   }

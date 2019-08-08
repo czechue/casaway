@@ -26,4 +26,4 @@ const mapStateToProps = ({ stats }: StoreState): { stats: PlayerStats } => {
   return { stats };
 };
 
-export const PlayerStatsComponent = connect(mapStateToProps)(_App);
+export const PlayerStatsContainer = connect(mapStateToProps)(_App);

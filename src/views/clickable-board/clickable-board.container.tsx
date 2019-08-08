@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  incrementItem,
-  incrementClicksCounter,
-} from "../../shared/store/actions";
+import { incrementItem, incrementClicksCounter } from "../../shared/store/actions";
 import { connect } from "react-redux";
 import { StoreState } from "../../shared/store/reducers";
 import { getItemNameById } from "../../shared/utils/getItemNameById";
@@ -13,7 +10,7 @@ interface AppProps {
   items: number[];
 }
 
-const INCREMENTOR = 1;
+const CLICKING_MULTIPLIER = 1;
 
 class _App extends React.Component<AppProps> {
   handleOnClick = (itemId: number, multiplier: number): void => {
@@ -27,7 +24,7 @@ class _App extends React.Component<AppProps> {
         <h3>Clickable Area:</h3>
         {this.props.items.map(itemId => {
           return (
-            <button key={itemId} onClick={() => this.handleOnClick(itemId, INCREMENTOR)}>
+            <button key={itemId} onClick={() => this.handleOnClick(itemId, CLICKING_MULTIPLIER)}>
               {getItemNameById(itemId)}
             </button>
           );
@@ -37,13 +34,11 @@ class _App extends React.Component<AppProps> {
   }
 }
 
-const mapStateToProps = ({
-  itemsClickable,
-}: StoreState): { items: number[]; } => {
+const mapStateToProps = ({ itemsClickable }: StoreState): { items: number[] } => {
   return { items: itemsClickable };
 };
 
-export const ClickableBoardComponent = connect(
+export const ClickableBoardContainer = connect(
   mapStateToProps,
   { incrementItem, incrementClicksCounter }
 )(_App);

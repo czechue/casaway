@@ -37,4 +37,4 @@ const mapStateToProps = ({ itemsToShow }: StoreState): { items: Item[] } => {
   return { items: itemsToShow };
 };
 
-export const PlayerItemsComponent = connect(mapStateToProps)(_App);
+export const PlayerItemsContainer = connect(mapStateToProps)(_App);

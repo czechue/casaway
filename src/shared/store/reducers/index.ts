@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { PlayerStats, Item } from "../actions";
 import { playerStatsReducer } from "./stats";
 import { itemsReducer } from "./items";
-import {clickableReducer, clicksReducer} from "./clicks";
+import { clickableReducer, clicksReducer } from "./clicks";
 
 export interface StoreState {
   stats: PlayerStats;
