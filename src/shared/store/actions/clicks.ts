@@ -18,6 +18,7 @@ export const incrementClicksCounter = (multiplier: number) => {
   return function(dispatch: Dispatch, getState: () => StoreState) {
     const clicks = getState().clicks;
 
+    // when clicks counter is equal specified value food points are decreased
     if (clicks === CLICKS_TO_DECREMENT_FOOD_POINT) {
       dispatch<ResetClicksCounterAction>(resetClicksCounter());
       dispatch<DecreaseFoodPointsAction>(decreaseFoodPoints(FOOD_POINTS_TO_DECREASE));

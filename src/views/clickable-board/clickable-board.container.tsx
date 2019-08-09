@@ -1,5 +1,5 @@
 import React from "react";
-import { incrementItem, incrementClicksCounter } from "../../shared/store/actions";
+import { incrementItem, incrementClicksCounter, updateAvaibleOperations } from "../../shared/store/actions";
 import { connect } from "react-redux";
 import { StoreState } from "../../shared/store/reducers";
 import { getItemNameById } from "../../shared/utils/getItemNameById";
@@ -7,6 +7,7 @@ import { getItemNameById } from "../../shared/utils/getItemNameById";
 interface AppProps {
   incrementItem: Function;
   incrementClicksCounter: Function;
+  updateAvaibleOperations: Function;
   items: number[];
 }
 
@@ -16,6 +17,7 @@ class _App extends React.Component<AppProps> {
   handleOnClick = (itemId: number, multiplier: number): void => {
     this.props.incrementItem(itemId);
     this.props.incrementClicksCounter(multiplier);
+    this.props.updateAvaibleOperations()
   };
 
   render() {
@@ -40,5 +42,5 @@ const mapStateToProps = ({ itemsClickable }: StoreState): { items: number[] } =>
 
 export const ClickableBoardContainer = connect(
   mapStateToProps,
-  { incrementItem, incrementClicksCounter }
+  { incrementItem, incrementClicksCounter, updateAvaibleOperations }
 )(_App);
