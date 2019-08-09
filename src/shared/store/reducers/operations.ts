@@ -14,31 +14,32 @@ export const operationsReducer = (state = INITIAL_STATE_OPERATIONS, action: Oper
 
     case ActionTypes.updateAvaibleOperations:
       const itemsAvaible = action.payload;
-      return state.map(operation => {
+      let updated = false;
+
+      const newState = state.map(operation => {
         const operationDataArray = data.find(operationData => operationData.id === operation.id);
-        if (operationDataArray) {
-          const requiredItemsArray = operationDataArray.requiredItems;
-          const condition = requiredItemsArray.every(reqItem => {
-            const avaible = itemsAvaible.find(item => item.id === reqItem.id);
-            return !!(avaible && avaible.amount >= reqItem.amount);
-          });
-          if (condition && !operation.enable) {
-            return {
-              ...operation,
-              enable: true
-            };
-          } else if (!condition && operation.enable) {
-            return {
-              ...operation,
-              enable: false
-            };
-          }
-          console.log('here1')
+        if (!operationDataArray) {
           return operation;
         }
-        console.log('here2')
+
+        const requiredItemsArray = operationDataArray.requiredItems;
+        const condition = requiredItemsArray.every(reqItem => {
+          const avaible = itemsAvaible.find(item => item.id === reqItem.id);
+          return !!(avaible && avaible.amount >= reqItem.amount);
+        });
+
+        if (condition && !operation.enable) {
+          updated = true;
+          return { ...operation, enable: true };
+        } else if (!condition && operation.enable) {
+          updated = true;
+          return { ...operation, enable: false };
+        }
+
         return operation;
       });
+
+      return updated ? newState : state;
 
     default:
       return state;

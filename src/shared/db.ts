@@ -42,4 +42,9 @@ export const ALL_OPERATIONS: AllOperation[] = [
     name: 'Craft Stone Axe',
     requiredItems: [{id: 0, amount: 20}, {id: 1, amount: 10}]
   },
+  {
+    id: 2,
+    name: 'Craft Stone Pickaxe',
+    requiredItems: [{id: 0, amount: 20}, {id: 1, amount: 10}]
+  },
 ];
