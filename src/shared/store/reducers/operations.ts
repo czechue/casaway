@@ -1,5 +1,4 @@
 import { ActionTypes, OperationsAction } from "../actions";
-import { ALL_OPERATIONS as data } from "../../db";
 
 const INITIAL_STATE_OPERATIONS = [
   { id: 0, enable: false },
@@ -13,11 +12,13 @@ export const operationsReducer = (state = INITIAL_STATE_OPERATIONS, action: Oper
       return state;
 
     case ActionTypes.updateAvaibleOperations:
-      const itemsAvaible = action.payload;
+      const { itemsAvaible, operationsData } = action.payload;
       let updated = false;
 
       const newState = state.map(operation => {
-        const operationDataArray = data.find(operationData => operationData.id === operation.id);
+        const operationDataArray = operationsData.find(
+          operationData => operationData.id === operation.id
+        );
         if (!operationDataArray) {
           return operation;
         }

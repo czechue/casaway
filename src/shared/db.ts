@@ -22,7 +22,7 @@ export const ALL_ITEMS: AllItems[] = [
   }
 ];
 
-interface AllOperation {
+export interface OperationData {
   id: number;
   name: string;
   requiredItems: RequiredItem[];
@@ -31,7 +31,7 @@ interface RequiredItem {
   id: number;
   amount: number;
 }
-export const ALL_OPERATIONS: AllOperation[] = [
+export const ALL_OPERATIONS: OperationData[] = [
   {
     id: 0,
     name: 'Eat Blueberries',
