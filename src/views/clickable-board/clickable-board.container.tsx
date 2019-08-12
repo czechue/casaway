@@ -1,5 +1,9 @@
 import React from "react";
-import { incrementItem, incrementClicksCounter, updateAvaibleOperations } from "../../shared/store/actions";
+import {
+  incrementItem,
+  incrementClicksCounter,
+  updateAvaibleOperations
+} from "../../shared/store/actions";
 import { connect } from "react-redux";
 import { StoreState } from "../../shared/store/reducers";
 import { getItemNameById } from "../../shared/utils/getItemNameById";
@@ -17,7 +21,7 @@ class _App extends React.Component<AppProps> {
   handleOnClick = (itemId: number, multiplier: number): void => {
     this.props.incrementItem(itemId);
     this.props.incrementClicksCounter(multiplier);
-    this.props.updateAvaibleOperations()
+    this.props.updateAvaibleOperations();
   };
 
   render() {
@@ -25,9 +29,13 @@ class _App extends React.Component<AppProps> {
       <div>
         <h3>Clickable Area:</h3>
         {this.props.items.map(itemId => {
+          const itemName = getItemNameById(itemId);
           return (
-            <button key={itemId} onClick={() => this.handleOnClick(itemId, CLICKING_MULTIPLIER)}>
-              {getItemNameById(itemId)}
+            <button
+              key={itemId}
+              onClick={() => this.handleOnClick(itemId, CLICKING_MULTIPLIER)}
+            >
+              {itemName}
             </button>
           );
         })}

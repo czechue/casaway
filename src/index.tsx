@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {createStore, applyMiddleware} from "redux";
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import * as serviceWorker from "./serviceWorker";
@@ -9,7 +9,27 @@ import { App } from "./views/app";
 
 import { reducers } from "./shared/store/reducers";
 
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
+const preloadedState = {
+  stats: {
+    healthPoints: 100,
+    foodPoints: 100
+  },
+  itemsToShow: [
+    { id: 0, amount: 0, show: true },
+    { id: 1, amount: 0, show: true },
+    { id: 2, amount: 0, show: true },
+    { id: 3, amount: 0, show: true }
+  ],
+  itemsClickable: [0, 1, 2, 3],
+  avaibleOperations: [
+    { id: 0, enable: false },
+    { id: 1, enable: false },
+    { id: 2, enable: false }
+  ],
+  clicks: 0
+};
+
+const store = createStore(reducers, preloadedState, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>

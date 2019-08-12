@@ -1,13 +1,6 @@
 import { ActionTypes, Item, ItemsAction } from "../actions";
 
-const INITIAL_STATE: Item[] = [
-  { id: 0, amount: 0, show: true },
-  { id: 1, amount: 0, show: true },
-  { id: 2, amount: 0, show: true },
-  { id: 3, amount: 0, show: true }
-];
-
-export const itemsReducer = (state = INITIAL_STATE, action: ItemsAction) => {
+export const itemsReducer = (state: Item[] = [], action: ItemsAction) => {
   let id = -1;
   let value = -1;
 

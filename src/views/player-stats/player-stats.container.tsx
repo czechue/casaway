@@ -10,11 +10,11 @@ interface OwnProps {
 class _App extends React.Component<OwnProps> {
   render() {
     return (
-      <div data-role="player-stats">
-        <p>
+      <div data-testid="player-stats" data-role="player-stats">
+        <p data-testid="player-stats-hp">
           Health points: <strong>{this.props.stats.healthPoints}</strong>
         </p>
-        <p>
+        <p data-testid="player-stats-food">
           Food points: <strong>{this.props.stats.foodPoints}</strong>
         </p>
       </div>
