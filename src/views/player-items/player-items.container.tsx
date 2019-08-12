@@ -3,7 +3,7 @@ import { Item } from "../../shared/store/actions";
 import styles from "./player-items.module.scss";
 import { StoreState } from "../../shared/store/reducers";
 import { connect } from "react-redux";
-import { getItemNameById } from "../../shared/utils/getItemNameById";
+import { getItemNameById } from "../../shared/utils/get-item-name-by-id";
 
 interface OwnProps {
   items: Item[];

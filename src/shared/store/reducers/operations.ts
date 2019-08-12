@@ -1,12 +1,6 @@
-import { ActionTypes, OperationsAction } from "../actions";
+import { ActionTypes, Operation, OperationsAction } from "../actions";
 
-const INITIAL_STATE_OPERATIONS = [
-  { id: 0, enable: false },
-  { id: 1, enable: false },
-  { id: 2, enable: false }
-];
-
-export const operationsReducer = (state = INITIAL_STATE_OPERATIONS, action: OperationsAction) => {
+export const operationsReducer = (state: Operation[] = [], action: OperationsAction) => {
   switch (action.type) {
     case ActionTypes.addNewOperation:
       return state;

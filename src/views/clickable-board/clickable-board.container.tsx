@@ -6,7 +6,7 @@ import {
 } from "../../shared/store/actions";
 import { connect } from "react-redux";
 import { StoreState } from "../../shared/store/reducers";
-import { getItemNameById } from "../../shared/utils/getItemNameById";
+import { getItemNameById } from "../../shared/utils/get-item-name-by-id";
 
 interface AppProps {
   incrementItem: Function;
@@ -32,6 +32,7 @@ class _App extends React.Component<AppProps> {
           const itemName = getItemNameById(itemId);
           return (
             <button
+              data-testid={`clickable-btn-${itemName}`}
               key={itemId}
               onClick={() => this.handleOnClick(itemId, CLICKING_MULTIPLIER)}
             >

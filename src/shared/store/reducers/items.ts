@@ -13,6 +13,7 @@ export const itemsReducer = (state: Item[] = [], action: ItemsAction) => {
         }
         return item;
       });
+
     case ActionTypes.decrementItem:
       id = action.payload.id;
       value = action.payload.value;
@@ -24,6 +25,7 @@ export const itemsReducer = (state: Item[] = [], action: ItemsAction) => {
         }
         return item;
       });
+
     default:
       return state;
   }

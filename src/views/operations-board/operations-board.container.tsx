@@ -1,6 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { increaseFoodPoints, decrementItem, updateAvaibleOperations, Operation } from "../../shared/store/actions";
+import {
+  increaseFoodPoints,
+  decrementItem,
+  updateAvaibleOperations,
+  Operation
+} from "../../shared/store/actions";
 import { StoreState } from "../../shared/store/reducers";
 import { ALL_OPERATIONS as operationsData, OperationData } from "../../shared/db";
 
@@ -52,10 +57,16 @@ class _App extends React.Component<AppProps> {
     return (
       <div>
         <h3>Action Board</h3>
-        {this.props.avaibleOperations.map(({id, enable} )=> {
+        {this.props.avaibleOperations.map(({ id, enable }) => {
+          const operationName = this.getOperationNameById(id);
           return (
-            <button disabled={!enable} key={id} onClick={() => this.onClickHandle(id, enable)}>
-              {this.getOperationNameById(id)}
+            <button
+              data-testid={`action-board-btn-${id}`}
+              disabled={!enable}
+              key={id}
+              onClick={() => this.onClickHandle(id, enable)}
+            >
+              {operationName}
             </button>
           );
         })}

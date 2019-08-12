@@ -10,6 +10,7 @@ export interface IncrementItemAction {
   type: ActionTypes.incrementItem;
   payload: number;
 }
+
 export const incrementItem = (id: number): IncrementItemAction => {
   return {
     type: ActionTypes.incrementItem,
@@ -24,6 +25,7 @@ export interface DecrementItemAction {
     value: number;
   };
 }
+
 export const decrementItem = (id: number, value: number): DecrementItemAction => {
   return {
     type: ActionTypes.decrementItem,

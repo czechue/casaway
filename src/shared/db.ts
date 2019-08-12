@@ -28,7 +28,7 @@ export interface OperationData {
   requiredItems: RequiredItem[];
   onProcess: {
     increaseFoodPoints?: number;
-  }
+  };
 }
 interface RequiredItem {
   id: number;
@@ -37,20 +37,20 @@ interface RequiredItem {
 export const ALL_OPERATIONS: OperationData[] = [
   {
     id: 0,
-    name: 'Eat Blueberries',
-    requiredItems: [{id: 3, amount: 10}],
-    onProcess: {increaseFoodPoints: 5}
+    name: "Eat Blueberries",
+    requiredItems: [{ id: 3, amount: 10 }],
+    onProcess: { increaseFoodPoints: 5 }
   },
   {
     id: 1,
-    name: 'Craft Stone Axe',
-    requiredItems: [{id: 0, amount: 20}, {id: 1, amount: 10}],
+    name: "Craft Stone Axe",
+    requiredItems: [{ id: 0, amount: 20 }, { id: 1, amount: 10 }],
     onProcess: {}
   },
   {
     id: 2,
-    name: 'Craft Stone Pickaxe',
-    requiredItems: [{id: 0, amount: 20}, {id: 1, amount: 10}],
+    name: "Craft Stone Pickaxe",
+    requiredItems: [{ id: 0, amount: 20 }, { id: 1, amount: 10 }],
     onProcess: {}
-  },
+  }
 ];

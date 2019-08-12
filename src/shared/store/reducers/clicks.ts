@@ -1,8 +1,6 @@
 import { ActionTypes, ClicksCounterAction } from "../actions";
 
-const INITIAL_STATE_CLICKABLE_ITMS: number[] = [0, 1, 2, 3];
-
-export const clickableReducer = (state = INITIAL_STATE_CLICKABLE_ITMS) => {
+export const clickableReducer = (state: number[] = []) => {
   // switch (action.type) {
   //   case ActionTypes.toggleItemClickable:
   //     const id = action.payload;
@@ -20,6 +18,7 @@ export const clicksReducer = (state = INITIAL_CLICKS_COUNTER, action: ClicksCoun
     case ActionTypes.incrementClicksCounter:
       const multiplier = action.payload;
       return state + multiplier;
+
     case ActionTypes.resetClicksCounter:
       return 0;
 

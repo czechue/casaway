@@ -13,6 +13,7 @@ export interface AddNewOperationAction {
   type: ActionTypes.addNewOperation;
   payload: number;
 }
+
 export const addNewOperation = (id: number) => {
   return {
     type: ActionTypes.addNewOperation,
@@ -24,6 +25,7 @@ export interface UpdateAvaibleOperations {
   type: ActionTypes.updateAvaibleOperations;
   payload: { itemsAvaible: Item[]; operationsData: OperationData[] };
 }
+
 export const updateAvaibleOperations = () => {
   return (dispatch: Dispatch, getState: () => StoreState) => {
     dispatch<UpdateAvaibleOperations>({
